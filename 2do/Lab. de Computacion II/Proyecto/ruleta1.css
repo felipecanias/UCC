@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.ruleta{
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+    background: black;
+
+}
+#ruleta{
+    position: relative;
+    width: 98%;
+    height: 98%;
+    margin: 1%;
+
+}
+#ruleta:hover{
+    transform: rotateY(45deg);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.slots{
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+    left: 50%;
+    background-color: #726d6d;
+}
+
+.container{
+    position: static;
+    background: aqua;
+    width: 100vw;
+    height: 100vh;
+}
