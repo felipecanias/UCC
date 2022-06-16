@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6095a28-056b-4fe6-bbcf-dc922b5cba87" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/proyecto2022-canas-lucero/styles/ruleta.css" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto2022-canas-lucero/styles/ruleta.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Repositorio1" beforeDir="false" afterPath="$PROJECT_DIR$/../Repositorio1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion II/Parcial ll - Borgogno, Cañas, Lucero, Quesada/ProyectoFinal_P2" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion II/Parcial ll - Borgogno, Cañas, Lucero, Quesada/ProyectoFinal_P2" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +53,9 @@
       <workItem from="1654986073602" duration="199000" />
       <workItem from="1654986374611" duration="144000" />
       <workItem from="1654986604542" duration="130000" />
+      <workItem from="1655060279872" duration="55000" />
+      <workItem from="1655145496523" duration="1424000" />
+      <workItem from="1655242823216" duration="2026000" />
     </task>
     <servers />
   </component>
