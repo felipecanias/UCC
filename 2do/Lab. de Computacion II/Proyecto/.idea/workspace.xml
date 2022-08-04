@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6095a28-056b-4fe6-bbcf-dc922b5cba87" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../1ero/Pensamientos Filosoficos/Chatelet Francois_Una Historia de la Razón.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1ero/Pensamientos Filosoficos/Chatelet Francois_Una Historia de la Razón.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proyecto2022-canas-lucero" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto2022-canas-lucero" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proyecto2022-canas-lucero/scripts/ruleta.js" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto2022-canas-lucero/scripts/ruleta.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Repositorio1" beforeDir="false" afterPath="$PROJECT_DIR$/../Repositorio1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Programacion II/Parcial ll - Borgogno, Cañas, Lucero, Quesada/ProyectoFinal_P2" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion II/Parcial ll - Borgogno, Cañas, Lucero, Quesada/ProyectoFinal_P2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Programacion II/Proyecto - Programacion I - FelipeCañas/Edadmayorpromedio.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion II/Proyecto - Programacion I - FelipeCañas/Edadmayorpromedio.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Programacion II/Proyecto - Programacion I - FelipeCañas/Internados5dias.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion II/Proyecto - Programacion I - FelipeCañas/Internados5dias.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Programacion II/Proyecto - Programacion I - FelipeCañas/PacientesAdyacentes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion II/Proyecto - Programacion I - FelipeCañas/PacientesAdyacentes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Programacion II/Proyecto - Programacion I - FelipeCañas/Testarea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion II/Proyecto - Programacion I - FelipeCañas/Testarea.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +72,8 @@
       <workItem from="1656879977766" duration="32454000" />
       <workItem from="1657033571820" duration="1087000" />
       <workItem from="1657038892072" duration="184000" />
+      <workItem from="1658540065136" duration="264000" />
+      <workItem from="1658540350791" duration="310000" />
     </task>
     <servers />
   </component>
