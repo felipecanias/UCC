@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6095a28-056b-4fe6-bbcf-dc922b5cba87" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proyecto2022-canas-lucero" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto2022-canas-lucero" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proyecto2022-canas-lucero/scripts/ruleta.js" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto2022-canas-lucero/scripts/ruleta.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Repositorio1" beforeDir="false" afterPath="$PROJECT_DIR$/../Repositorio1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Programacion II/Parcial ll - Borgogno, Cañas, Lucero, Quesada/ProyectoFinal_P2" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion II/Parcial ll - Borgogno, Cañas, Lucero, Quesada/ProyectoFinal_P2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/Programacion II/Parcial ll - Borgogno, Cañas, Lucero, Quesada/ProyectoFinal_P2" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/Programacion II/Parcial ll - Borgogno, Cañas, Lucero, Quesada/ProyectoFinal_P2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programacion/Programacion III/2021a2-u00-repaso-felipecanias" beforeDir="false" afterPath="$PROJECT_DIR$/../../Programacion/Programacion III/2021a2-u00-repaso-felipecanias" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +74,7 @@
       <workItem from="1657038892072" duration="184000" />
       <workItem from="1658540065136" duration="264000" />
       <workItem from="1658540350791" duration="310000" />
+      <workItem from="1659904639347" duration="23000" />
     </task>
     <servers />
   </component>
