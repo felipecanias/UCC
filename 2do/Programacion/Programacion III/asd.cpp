@@ -2,24 +2,16 @@
 
 using namespace std;
 
-int *MultiplyArrayByTwo(int arr[], int size) {
-  for (int i = 0; i < size; ++i) {
-    arr[i] = 1;
-  }
-  return arr;
-}
 
 int main() {
-  constexpr int size = 10;
-  int c_array[size];
 
-  int *ptr = MultiplyArrayByTwo(c_array, size);
+  int arr[5];
 
-  cout << "array = [ ";
-  for (int i = 0; i < size; ++i) {
-    cout << ptr[i] << ", ";
+  for(int i=0 ;i<5; i++){
+    arr[i]=i;
   }
-  cout << "]" << endl;
-
-  return EXIT_SUCCESS;
+  for (int i = 0; i < 6; i++) {
+    cout<<arr[i]<<endl;
+  }
+  return 0;
 }

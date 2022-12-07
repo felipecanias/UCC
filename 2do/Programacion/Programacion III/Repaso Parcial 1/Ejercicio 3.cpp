@@ -11,7 +11,7 @@ void asteriscos(int n){
 
 int main() {
     int x=0;
-    cout<<"Ingrese el valor de n: ";cin>>x;
+    cout<<"Ingrese el valor de n; ";cin>>x;
     asteriscos(x);
   return 0;
 }

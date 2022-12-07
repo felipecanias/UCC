@@ -12,7 +12,7 @@ void rango(int n) {
 
 int main() {
     int x=0;
-    cout<<"Ingrese el valor de n: ";cin>>x;
+    cout<<"Ingrese el valor de n; ";cin>>x;
     rango(x-1);
   return 0;
 }
