@@ -1,0 +1,29 @@
+			MOV		R0,#0
+			MOV		R1, #cadena1
+			MOV		R2, #cadena2
+			MOV		R5, #0
+			
+cadena1		DCB		'H','O','L','A','A'
+cadena2		DCB		'H','O','L','A','A'
+			
+loop
+			LDRB		R3, [R1],#1
+			LDRB		R4, [R2],#1
+			CMP		R3,R4
+			BNE		badfinish
+			
+			ADD		R0,R0,#1
+			
+			CMP		R0,#5
+			BEQ		rightfinish
+			BNE		loop
+			
+badfinish
+			MOV		R5,#0
+			end
+			
+			
+rightfinish
+			MOV		R5,#1
+			
+			

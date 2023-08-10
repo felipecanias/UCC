@@ -1,0 +1,22 @@
+		MOV		R1, #0
+		MOV		R2, #0
+		MOV		R3, #0
+		MOV		R0, #table
+		
+loop
+		
+		LDRB		R2, [R0, R1]
+		CMP		R2, #42
+		BEQ		finish
+		ADD		R1,R1,#1
+		
+		CMP		R1, #249
+		BNE		loop
+		
+		MOV		R1, #-1
+		
+finish
+		
+		MOV		R3, R1
+		
+table	DCB		1,2,3,4,5,7,8,12

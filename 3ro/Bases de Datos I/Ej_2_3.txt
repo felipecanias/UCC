@@ -1,0 +1,6 @@
+-En proveedor, no deberia estar "id_producto".
+-La relacion de direccion con proveedor deberia ser (1..1) en vez de (0..1).
+-El nombre de la sucursal deberia estar en la tabla Direc_x_Prov y no en direccion.
+-La relacion de venta con cliente deberia ser (1..1) y no (1..*)
+-Venta no debearia tener id_categoria ni Cantidad.
+-Deberia reemplazar la tabla Venta_x_Categoria por Venta_x_Producto

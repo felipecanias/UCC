@@ -1,0 +1,30 @@
+{
+    "direccion": {
+            "Calle": "Coronda",
+            "Numero": "3887",
+            "Codigo Postal": "5000"
+
+    },
+    "items": [
+        {
+            "nombre": "Zapatillas Puma",
+            "id": "123123",
+            "Precio": "20",
+            "Cantidad": "1"
+
+        },
+        {
+            "nombre": "Zapatillas Adidas",
+            "id": "345345",
+            "Precio": "10",
+            "Cantidad": "2"
+        },
+        {
+            "nombre": "Zapatillas Nike",
+            "id": "567567",
+            "Precio": "5",
+            "Cantidad": "2"
+        }
+    ],
+    "Total": "50"
+}

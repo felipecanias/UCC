@@ -1,0 +1,5 @@
+		MOV		R4,#10
+		
+		ADD		R9,R4,R4,LSL #2
+		RSB		R10, R9, R9, LSL #3
+		
