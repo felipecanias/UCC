@@ -1,0 +1,86 @@
+CREATE DATABASE Asistencia;
+
+CREATE TABLE Empleados(
+    idEmpleado INTEGER NOT NULL AUTO_INCREMENT,
+    Apellido VARCHAR(255),
+    Nombre VARCHAR(255),
+    PRIMARY KEY(idEmpleado)
+);
+
+CREATE TABLE Registros(
+    idRegistro INTEGER NOT NULL AUTO_INCREMENT,
+    Fecha DATE,
+    idEmpleado INTEGER,
+    Estado VARCHAR(255) CHECK (estado IN ('Presente', 'Ausente')),
+    PRIMARY KEY(idRegistro),
+    FOREIGN KEY(idEmpleado) REFERENCES Empleados(idEmpleado)
+);
+
+CREATE TABLE Log(
+    idLog INTEGER NOT NULL AUTO_INCREMENT,
+    Fecha DATE,
+    Cambio VARCHAR(255) CHECK (Cambio IN ('Presente', 'Ausente')),
+    Usuario VARCHAR(255),
+    PRIMARY KEY(idLog)
+);
+
+DELIMITER //
+
+CREATE PROCEDURE agregar_empleado(apellido_ VARCHAR(255), nombre_ VARCHAR(255))
+    BEGIN
+
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+        BEGIN
+            ROLLBACK;
+            SELECT 'Error in transaction' AS message;
+        END;
+
+
+    START TRANSACTION;
+    INSERT INTO Empleados(Apellido, Nombre) values(apellido_, nombre_);
+    commit;
+
+    END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE agregar_registro(fecha_ DATE, idEmpleado_ INTEGER , Estado_ VARCHAR(255))
+    BEGIN
+
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+        BEGIN
+            ROLLBACK;
+            SELECT 'Error in transaction' AS message;
+        END;
+
+
+    START TRANSACTION;
+    INSERT INTO Registros(Fecha, idEmpleado, Estado) values(fecha_, idEmpleado_, Estado_);
+    commit;
+
+    END //
+
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER log_
+	AFTER UPDATE ON Registros
+	FOR EACH ROW
+	BEGIN
+	INSERT INTO Log(Fecha, Cambio, Usuario) values(NOW(), OLD.Estado, "Felipe");
+	END //
+DELIMITER ;
+
+CREATE VIEW Datos AS (
+SELECT E.Apellido, E.Nombre, R.Fecha, R.Estado
+FROM Empleados E
+INNER JOIN Registros R ON E.idEmpleado = R.idEmpleado
+);
+
+SELECT E.idEmpleado, E.Nombre, count(*) as "Cant. Faltas"
+FROM Empleados E
+INNER JOIN Registros R ON E.idEmpleado = R.idEmpleado
+GROUP BY E.idEmpleado, R.Estado, E.Nombre
+HAVING R.Estado like "Ausente";

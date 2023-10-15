@@ -1,0 +1,200 @@
+	1)  
+	
+	    -- Creación de la base de datos
+	    CREATE DATABASE Saldos;
+	    
+	    -- Usar la base de datos
+	    USE Saldos;
+	    
+	    -- Creación de la tabla Clientes
+	    CREATE TABLE Clientes (
+	        IdCliente INT AUTO_INCREMENT PRIMARY KEY,
+	        Apellido VARCHAR(50),
+	        Nombres VARCHAR(50),
+	        Saldo DECIMAL(10, 2)
+	    );
+	    
+	    -- Creación de la tabla Movimientos
+	    CREATE TABLE Movimientos (
+	        IdMovimiento INT AUTO_INCREMENT PRIMARY KEY,
+	        IdCliente INT,
+	        Fecha DATE,
+	        TipoMovimiento CHAR(1),
+	        Monto DECIMAL(10, 2),
+	        FOREIGN KEY (IdCliente) REFERENCES Clientes(IdCliente)
+	    );
+	    
+	    ------------------------------------------
+	    DELIMITER //
+	    
+	    CREATE PROCEDURE new_transaction(_idcliente int, _fecha date, _tm char(1), _monto decimal(10,2))
+	    BEGIN
+	    
+	    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+	    BEGIN
+	    rollback;
+	    SELECT 'Error in transaction' AS message;
+	    END;
+	    
+	    START TRANSACTION;
+	    INSERT INTO Movimientos(idCliente, Fecha, TipoMovimiento, Monto) values(_idcliente, _fecha, _tm, _monto);
+	    Commit;
+	    
+	    END
+	    //
+	    
+	    delimiter ;
+	    
+	    ------------------------------------------
+	    
+	    INSERT INTO Clientes(Apellido, Nombres, Saldo) values("Cañas","Felipe", "100000");
+	    
+	    ------------------------------------------
+	    
+	    DELIMITER //
+	    CREATE TRIGGER actualizar_saldo
+	    AFTER INSERT ON Movimientos
+	    FOR EACH ROW
+	    BEGIN
+	        IF NEW.TipoMovimiento = 'E' THEN
+	            UPDATE Clientes SET saldo = saldo - NEW.Monto WHERE IdCliente = NEW.IdCliente;
+	        ELSEIF NEW.TipoMovimiento = 'I' THEN
+	            UPDATE Clientes SET saldo = saldo + NEW.Monto WHERE IdCliente = NEW.IdCliente;
+	        END IF;
+	    END;
+	    //
+	    DELIMITER ;
+	    
+	    -----------------------------------------
+	    
+	    CALL new_transaction(1, '2023-04-01', "E", 1000);
+	
+	2)  
+	
+	    CREATE DATABASE ProcesosSA;
+	    
+	    USE ProcesosSA;
+	    
+	    CREATE TABLE `Turno` (
+	      `Id` int PRIMARY KEY AUTO_INCREMENT,
+	      `Name` varchar(255) NOT NULL
+	    );
+	    
+	    CREATE TABLE `Mozos` (
+	      `Id` int PRIMARY KEY AUTO_INCREMENT,
+	      `Name` varchar(255) NOT NULL
+	    );
+	    
+	    CREATE TABLE `Mozo_Mesa` (
+	      `Id` int PRIMARY KEY AUTO_INCREMENT,
+	      `IdMozo` int,
+	      `IdMesa` int
+	    );
+	    
+	    CREATE TABLE `Mesa` (
+	      `Id` int PRIMARY KEY AUTO_INCREMENT,
+	      `Description` varchar(255) NOT NULL
+	    );
+	    
+	    CREATE TABLE `Log` (
+	      `Id` int PRIMARY KEY AUTO_INCREMENT,
+	      `IdMesa` int,
+	      `IdMozoanterior` int,
+	      `IdMozoactual` int,
+	      `Date` date NOT NULL
+	    );
+	    
+	    ALTER TABLE `Mozo_Mesa` ADD FOREIGN KEY (`IdMozo`) REFERENCES `Mozos` (`Id`);
+	    
+	    ALTER TABLE `Mozo_Mesa` ADD FOREIGN KEY (`IdMesa`) REFERENCES `Mesa` (`Id`);
+	    
+	    ALTER TABLE `Log` ADD FOREIGN KEY (`IdMesa`) REFERENCES `Mesa` (`Id`);
+	    
+	    ALTER TABLE `Log` ADD FOREIGN KEY (`IdMozoanterior`) REFERENCES `Mozos` (`Id`);
+	    
+	    ALTER TABLE `Log` ADD FOREIGN KEY (`IdMozoactual`) REFERENCES `Mozos` (`Id`);
+	    
+	    
+	    ---------------------------------------
+	    
+	    INSERT INTO Mesa(Description) values ("Mesa para 2");
+	    INSERT INTO Mesa(Description) values ("Mesa para 3");
+	    INSERT INTO Mesa(Description) values ("Mesa para 4");
+	    
+	    INSERT INTO Mozos(Name) values("Pedro"),("Juan"),("Jose");
+	    
+	    ---------------------------------------
+	    
+	    DELIMITER //
+	    CREATE PROCEDURE assign(_idmesa INT, _idmozo INT)
+	    BEGIN
+	        DECLARE Id INT;
+	        
+	        DECLARE EXIT HANDLER FOR SQLEXCEPTION
+	        BEGIN
+	            ROLLBACK;
+	            SELECT 'Error in transaction' AS message;
+	        END;
+	    
+	        SELECT IdMesa
+	        INTO Id
+	        FROM MOZO_MESA
+	        WHERE IdMesa = _idmesa;
+	    
+	        IF Id IS NULL THEN
+	        START TRANSACTION;
+	            INSERT INTO MOZO_MESA(IdMesa, IdMozo) VALUES (_idmesa, _idmozo);
+	        Commit;
+	        ELSE
+	        START TRANSACTION;
+	            UPDATE MOZO_MESA SET IdMozo = _idmozo WHERE IdMesa = _idmesa;
+	        Commit;
+	        END IF;
+	        
+	    
+	    END;
+	    //
+	    DELIMITER ;
+	    
+	    ------------------------------------------
+	    
+	    CALL assign(1,1);
+	    
+	    ------------------------------------------
+	    
+	    DELIMITER //
+	    CREATE FUNCTION unassigned_tables()
+	    RETURNS INT
+	    DETERMINISTIC
+	    READS SQL DATA
+	    BEGIN
+	        DECLARE cant INT;
+	    
+	        SELECT COUNT(m.Id)
+	        INTO cant
+	        FROM Mesa m
+	        LEFT JOIN Mozo_Mesa mm ON m.Id = mm.IdMesa
+	        WHERE mm.IdMesa IS NULL;
+	    
+	        RETURN cant;
+	    END
+	    //
+	    DELIMITER ;
+	    
+	------------------------------------
+	    
+	    SELECT unassigned_tables();
+	    
+	------------------------------------
+		
+		DELIMITER //
+		CREATE TRIGGER log_
+		AFTER UPDATE ON Mozo_Mesa
+		FOR EACH ROW
+		BEGIN
+		INSERT INTO Log(IdMesa,IdMozoanterior, IdMozoactual, Date) values(New.IdMesa, Old.IdMozo, New.IdMozo, Now());
+		END;
+		//
+		DELIMITER ;
+		
+	

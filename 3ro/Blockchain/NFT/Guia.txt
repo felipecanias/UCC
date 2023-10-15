@@ -1,0 +1,2 @@
+https://www.quicknode.com/guides/ethereum-development/nfts/how-to-create-and-deploy-an-erc-721-nft#step-4-adding-json-file-to-ipfs
+https://app.pinata.cloud/pinmanager
